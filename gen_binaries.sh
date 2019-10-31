@@ -1,5 +1,4 @@
 #!/bin/bash
-#set -e
 
 #############
 # TODO
@@ -127,7 +126,8 @@ if [ "$compileFlag" = true ]; then
       fi
 
       # Copy the inputs from the host build
-      inputs=$(find "$host_bmk_dir"/* -maxdepth 0 ! -executable -o -type d)
+      #inputs=$(find "$host_bmk_dir"/* -maxdepth 0 ! -executable -o -type d)
+      inputs=$(find "$host_bmk_dir"/* -maxdepth 0)
       for input in ${inputs[@]}; do
          echo $input
          cp -rf $input -T $output_dir/$(basename "$input")
